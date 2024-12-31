@@ -216,6 +216,12 @@
                                         </div>
 
                                         <div class="col-lg-12 mb20">
+                                        <h5>Kullanıcı Adı</h5>
+                                        
+                                        <input name="username" id="username" class="form-control" placeholder="Kullanıcı adınız"></input>
+                                        </div>
+
+                                        <div class="col-lg-12 mb20">
                                             <h5>Alınacak Tarih Saat</h5>
                                             <div class="date-time-field">
                                                 <input type="text" id="date-picker" name="Pick Up Date" value="">

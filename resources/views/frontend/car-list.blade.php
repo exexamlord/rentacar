@@ -284,7 +284,7 @@
                                         </div>
                                         <div class="d-info">
                                             <div class="d-text">
-                                                <h4>Jeep Renegade</h4>
+                                                <h4>{{ $carmain2->carname }}</h4>
                                                 <div class="d-atr-group">
                                                     <ul class="d-atr">
                                                         <li><span>Kişi:</span>{{ $carmain2->carseats }}</li>

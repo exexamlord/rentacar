@@ -56,24 +56,24 @@ Route::post('/register', function (Request $request) {
     // Form verilerini doğrula
     $validatedData = $request->validate([
         'name' => 'required|string|max:255',
-        'mail' => 'required|email|unique:mainusers,mail', // mail alanını kontrol ediyoruz
+        'mail' => 'required|email|unique:mainusers,mail', 
         'username' => 'required|string|max:255|unique:mainusers,username',
         'phone' => 'required|string|max:15',
-        'password' => 'required|string|min:6|same:re-password', // Şifre eşleşmesini kontrol eder
+        'password' => 'required|string|min:6|same:re-password', 
     ]);
 
     // Kullanıcıyı oluştur ve kaydet
     DB::table('mainusers')->insert([
         'name' => $validatedData['name'],
-        'mail' => $validatedData['mail'], // mail sütununa kaydediyoruz
+        'mail' => $validatedData['mail'], 
         'username' => $validatedData['username'],
         'phone' => $validatedData['phone'],
-        'password' => $validatedData['password'], // Şifre düz metin olarak kaydediliyor
+        'password' => $validatedData['password'], 
         'created_at' => now(),
         'updated_at' => now(),
     ]);
 
-    // Yönlendirme yap
+    
     return redirect()->route('register.form')->with('success', 'Kayıt başarılı! Giriş yapabilirsiniz.');
 })->name('register');
 
