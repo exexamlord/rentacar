@@ -100,8 +100,10 @@
                                         </form>
                                         <div class="title-line">Hala&nbsp;hesabınız&nbsp;yok&nbsp;mu?</div>
                                         <div class="row g-2">
-                                            <div id="submit">
-                                                <input type="submit" id="send_message" value="Kayıt Ol" class="btn-main btn-fullwidth rounded-3" />
+                                        <div id="submit">
+                                                <button id="send_message" class="btn-main btn-fullwidth rounded-3" onclick="window.location.href='/register'">
+                                                    Kayıt Ol
+                                                </button>
                                             </div>
                                                 @if ($errors->has('message'))
                                                 <div style="color: red;">

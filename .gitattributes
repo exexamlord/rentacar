@@ -6,6 +6,12 @@
 *.md diff=markdown
 *.php diff=php
 
+*.blade.php linguist-language=HTML
+*.css linguist-language=CSS
+*.html linguist-language=HTML
+*.php linguist-language=PHP
+*.md linguist-language=Markdown
+
 /.github export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore

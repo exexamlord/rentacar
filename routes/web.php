@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Admin\Controllers\carsmainController;
 use App\Admin\Controllers\MainusersControllers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,43 @@ Route::get('/login', function () {
         'posts' => $posts
     ]);
 });
+
+//register begin
+
+Route::get('/register', function () {
+    $posts = DB::table('mainusers')->get();
+    return view('frontend.register', [
+        'posts' => $posts
+    ]);
+})->name('register.form');
+
+// Kayıt işlemini gerçekleştir
+Route::post('/register', function (Request $request) {
+    // Form verilerini doğrula
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'mail' => 'required|email|unique:mainusers,mail', // mail alanını kontrol ediyoruz
+        'username' => 'required|string|max:255|unique:mainusers,username',
+        'phone' => 'required|string|max:15',
+        'password' => 'required|string|min:6|same:re-password', // Şifre eşleşmesini kontrol eder
+    ]);
+
+    // Kullanıcıyı oluştur ve kaydet
+    DB::table('mainusers')->insert([
+        'name' => $validatedData['name'],
+        'mail' => $validatedData['mail'], // mail sütununa kaydediyoruz
+        'username' => $validatedData['username'],
+        'phone' => $validatedData['phone'],
+        'password' => $validatedData['password'], // Şifre düz metin olarak kaydediliyor
+        'created_at' => now(),
+        'updated_at' => now(),
+    ]);
+
+    // Yönlendirme yap
+    return redirect()->route('register.form')->with('success', 'Kayıt başarılı! Giriş yapabilirsiniz.');
+})->name('register');
+
+//register finish
 
 
 
