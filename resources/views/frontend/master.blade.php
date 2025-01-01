@@ -60,13 +60,37 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="de-flex-col">
-                                <div class="menu_side_area">
-                                    
-                                    <a href="{{ url('/login') }}" class="btn-main">Üye Girişi</a>
-                                    <span id="menu-btn"></span>
-                                </div>
+                        <!-- üye girişi başlangıc -->
+
+                        <div class="de-flex-col">
+                            <div class="menu_side_area">
+                                @if(auth('admin')->check()) <!-- OpenAdmin'in auth kontrolü -->
+                                    <div class="de-login-menu">
+                                        <span id="de-click-menu-profile" class="de-menu-profile">                           
+                                            <img src="{{ asset('images/profile/1.jpg') }}" class="img-fluid" alt="Profil Resmi">
+                                        </span>
+                                        <div id="de-submenu-profile" class="de-submenu">
+                                            <div class="d-name">
+                                                <h4>{{ auth('admin')->user()->name }}</h4>
+                                                <span class="text-gray">{{ auth('admin')->user()->email }}</span>
+                                            </div>
+                                            <div class="d-line"></div>
+                                            <ul class="menu-col">
+                                                <li><a href="dashboard.html"><i class="fa fa-home"></i>Dashboard</a></li>
+                                                <li><a href="profile.html"><i class="fa fa-user"></i>My Profile</a></li>
+                                                <li><a href="logout.html"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                @else
+                                    <a href="{{ route('login') }}" class="btn-main">Üye Girişi</a>
+                                @endif
+                                <span id="menu-btn"></span>
                             </div>
+                        </div>
+
+
+                        <!-- üye girişi bitiş -->
                         </div>
                     </div>
                 </div>

@@ -6,6 +6,8 @@ use App\Admin\Controllers\carsmainController;
 use App\Admin\Controllers\MainusersControllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Admin\Controllers\RentalsControllers;
+use App\Admin\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +104,12 @@ Route::get('/cars/{id}', function ($id) {
     ]);
 });
 
+    
+
+
+
+
+    Route::post('/dashboard', [RentalsControllers::class, 'store'])->name('rentals.store');
 
 
 

@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Routing\Router;
+use App\Admin\Controllers\carsmainController;
+use App\Admin\Controllers\deneme2controllers;
+use App\Admin\Controllers\carmain2Controllers;
 use App\Admin\Controllers\MainusersControllers;
+use App\Admin\Controllers\RentalsControllers;
+
 
 Admin::routes();
 
@@ -21,6 +26,8 @@ Route::group([
     $router->resource('carmain2s', carmain2Controllers::class);
 
     $router->resource('mainusers', MainusersControllers::class);
+
+    $router->resource('rentals', RentalsControllers::class);
 
 
 });
