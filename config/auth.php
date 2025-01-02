@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'mainusers',
         ],
     ],
 
@@ -60,16 +60,11 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'mainusers' => [ // Burada 'mainusers' adında bir provider tanımlıyoruz
+            'driver' => 'eloquent', 
+            'model' => App\Models\Mainusers::class, 
     ],
+],
 
     /*
     |--------------------------------------------------------------------------

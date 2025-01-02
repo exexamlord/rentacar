@@ -64,15 +64,15 @@
 
                         <div class="de-flex-col">
                             <div class="menu_side_area">
-                                @if(auth('admin')->check()) <!-- OpenAdmin'in auth kontrolü -->
+                                @auth <!-- Kullanıcı giriş kontrolü -->
                                     <div class="de-login-menu">
                                         <span id="de-click-menu-profile" class="de-menu-profile">                           
                                             <img src="{{ asset('images/profile/1.jpg') }}" class="img-fluid" alt="Profil Resmi">
                                         </span>
                                         <div id="de-submenu-profile" class="de-submenu">
                                             <div class="d-name">
-                                                <h4>{{ auth('admin')->user()->name }}</h4>
-                                                <span class="text-gray">{{ auth('admin')->user()->email }}</span>
+                                                <h4>{{ auth()->user()->name }}</h4>
+                                                <span class="text-gray">{{ auth()->user()->email }}</span>
                                             </div>
                                             <div class="d-line"></div>
                                             <ul class="menu-col">
@@ -84,7 +84,7 @@
                                     </div>
                                 @else
                                     <a href="{{ route('login') }}" class="btn-main">Üye Girişi</a>
-                                @endif
+                                @endauth
                                 <span id="menu-btn"></span>
                             </div>
                         </div>
