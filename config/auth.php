@@ -60,7 +60,7 @@ return [
     */
 
     'providers' => [
-        'mainusers' => [ // Burada 'mainusers' adında bir provider tanımlıyoruz
+        'mainusers' => [ 
             'driver' => 'eloquent', 
             'model' => App\Models\Mainusers::class, 
     ],

@@ -64,7 +64,7 @@
 
                         <div class="de-flex-col">
                             <div class="menu_side_area">
-                                @auth <!-- Kullanıcı giriş kontrolü -->
+                                @if(auth()->check()) 
                                     <div class="de-login-menu">
                                         <span id="de-click-menu-profile" class="de-menu-profile">                           
                                             <img src="{{ asset('images/profile/1.jpg') }}" class="img-fluid" alt="Profil Resmi">
@@ -84,7 +84,7 @@
                                     </div>
                                 @else
                                     <a href="{{ route('login') }}" class="btn-main">Üye Girişi</a>
-                                @endauth
+                                @endif
                                 <span id="menu-btn"></span>
                             </div>
                         </div>
