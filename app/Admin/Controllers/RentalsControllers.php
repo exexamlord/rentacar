@@ -38,6 +38,7 @@ class RentalsControllers extends AdminController
         $grid->column('end_time', __('End time'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+        $grid->column('durum', __('Durum'));
 
         return $grid;
     }
@@ -62,6 +63,7 @@ class RentalsControllers extends AdminController
         $show->field('end_time', __('End time'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
+        $show->field('durum', __('durum'));
 
         return $show;
     }
@@ -80,6 +82,7 @@ class RentalsControllers extends AdminController
         'pickup_time' => 'required|string', 
         'dropoff_date' => 'required|string', 
         'dropoff_time' => 'required|string', 
+        'durum' => 'required|string',
     ]);
 
     // Tarih ve saatleri alıyoruz
@@ -104,8 +107,9 @@ class RentalsControllers extends AdminController
     $rental->pickupLocation = $validated['pickupLocation'];
     $rental->dropoffLocation = $validated['dropoffLocation'];
     $rental->username = $validated['username'];
-    $rental->start_time = $start_time->format('Y-m-d H:i:s');  // Carbon ile formatlıyoruz
-    $rental->end_time = $end_time->format('Y-m-d H:i:s');  // Carbon ile formatlıyoruz
+    $rental->start_time = $start_time->format('Y-m-d H:i:s');  
+    $rental->end_time = $end_time->format('Y-m-d H:i:s');  
+    $rental->durum = $validated['durum'];
     $rental->save();
 
     return redirect('/dashboard')->with('success', 'Araç başarıyla kiralandı!');
@@ -124,6 +128,7 @@ class RentalsControllers extends AdminController
         $form->text('username', __('Username'));
         $form->text('start_time', __('Start time'));
         $form->text('end_time', __('End time'));
+        $form->text('durum', __('durum'));
 
         return $form;
     }

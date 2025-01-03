@@ -98,6 +98,17 @@ public function dashboard()
     return view('frontend.dashboard');
 }
 
+public function logout()
+{
+    session()->flush(); 
+    return redirect('/'); 
+}
+
+public function profile()
+{
+    return view('frontend.profile');
+}
+
 
     //login kısmı bitiş-----------------------------------------------------
 

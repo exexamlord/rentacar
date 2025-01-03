@@ -7,7 +7,7 @@ use App\Admin\Controllers\MainusersControllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Admin\Controllers\RentalsControllers;
-use App\Admin\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,9 @@ route::get('/',[TemplateController::class,'index']);
 Route::get('/cars', [carsmainController::class, 'list'])->name('cars.list');
 // Route::get('/cars/{id}', [carsmainController::class, 'show'])->name('cars.show');
 Route::post('/login', [MainusersControllers::class, 'login'])->name('login');
-Route::get('/dashboard', [MainusersControllers::class, 'dashboard'])->name('dashboard');
+// Route::get('/dashboard', [MainusersControllers::class, 'dashboard'])->name('dashboard');
+Route::post('/logout', [MainusersControllers::class, 'logout'])->name('logout');
+Route::get('/profile', [MainusersControllers::class, 'profile'])->name('profile');
 
 
 
@@ -43,6 +45,21 @@ Route::get('/login', function () {
         'posts' => $posts
     ]);
 });
+
+
+
+
+Route::get('/dashboard', function () {
+    if (session('user_id')) {
+        $userId = session('user_id'); 
+        $rentals = DB::table('rentals')->where('user_id', $userId)->get(); 
+        return view('frontend.dashboard', compact('rentals'));
+    } else {
+        return redirect('/login')->with('error', 'Lütfen giriş yapınız.'); //önemli değil eklenmeyebilir
+    }
+})->name('dashboard');
+
+
 
 //register begin
 

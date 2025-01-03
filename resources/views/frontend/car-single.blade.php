@@ -30,29 +30,7 @@
         <!-- page preloader close -->
 
         <!-- header begin -->
-        <header class="transparent scroll-light has-topbar">
-            <div id="topbar" class="topbar-dark text-light">
-                <div class="container">
-                    <div class="topbar-left xs-hide">
-                        <div class="topbar-widget">
-                            <div class="topbar-widget"><a href="#"><i class="fa fa-phone"></i>+905555555</a></div>
-                            <div class="topbar-widget"><a href="#"><i class="fa fa-envelope"></i>destek@rent.com</a></div>
-                            <div class="topbar-widget"><a href="#"><i class="fa fa-clock-o"></i>7/24</a></div>
-                        </div>
-                    </div>
-                
-                    <div class="topbar-right">
-                        <div class="social-icons">
-                            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-youtube fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
-                        </div>
-                    </div>  
-                    <div class="clearfix"></div>
-                </div>
-            </div>
+        <header class="transparent">            
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -61,10 +39,10 @@
                                 <div class="de-flex-col">
                                     <!-- logo begin -->
                                     <div id="logo">
-                                    <a href="/">
-                                        <img class="logo-1" src="{{ asset('/images/logo-light.png') }}" alt="">
-                                        <img class="logo-2" src="{{ asset('/images/logo-light.png') }}" alt="">
-                                    </a>
+                                        <a href="/">
+                                            <img class="logo-1" src="/images/logo-light.png" alt="">
+                                            <img class="logo-2" src="/images/logo-light.png" alt="">
+                                        </a>
                                     </div>
                                     <!-- logo close -->
                                 </div>
@@ -73,7 +51,8 @@
                                 <ul id="mainmenu">
                                     <li><a class="menu-item" href="/">Anasayfa</a>
                                     </li>
-                                    <li><a class="menu-item" href="{{ url('/car-list') }}">Arabalar</a>
+                                    
+                                    <li><a class="menu-item" href="{{ url('/car-list') }}">Arabalar</a>  
                                     </li>
                                     <li><a class="menu-item" href="quick-booking.html">Hızlı Rezervasyon</a>
                                         
@@ -83,17 +62,56 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="de-flex-col">
-                                <div class="menu_side_area">
-                                    <a href="{{ url('/login') }}" class="btn-main">Üye Girişi</a>
-                                    <span id="menu-btn"></span>
-                                </div>
+                        <!-- üye girişi başlangıc -->
+
+                        <div class="de-flex-col">
+                            <div class="menu_side_area">
+                                @if(session('user_id'))
+                                    @php
+                                        $user = \App\Models\Mainusers::find(session('user_id'));
+                                    @endphp
+                                    <div class="de-login-menu">
+                                        <span id="de-click-menu-profile" class="de-menu-profile">
+                                            <!-- Statik Profil Fotoğrafı -->
+                                            <img src="{{ asset('images/profile/2.png') }}" class="img-fluid" alt="Profil Resmi">
+                                        </span>
+                                        <div id="de-submenu-profile" class="de-submenu">
+                                            <div class="d-name">
+                                                <h4>{{ $user->name ?? 'Kullanıcı Adı' }}</h4>
+                                                <span class="text-gray">{{ $user->mail ?? 'Kullanıcı E-posta' }}</span>
+                                            </div>
+                                            <div class="d-line"></div>
+                                            <ul class="menu-col">
+                                                <li><a href="{{ url('dashboard') }}"><i class="fa fa-home"></i>Kulalnıcı Paneli</a></li>
+                                                <li><a href="{{ route('profile') }}"><i class="fa fa-user"></i>Profilim</a></li>
+                                                <li>
+                                                    <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        <i class="fa fa-sign-out"></i>Çıkış Yap
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                @else
+                                    <a href="{{ route('login') }}" class="btn-main">Üye Girişi</a>
+                                @endif
+                                <span id="menu-btn"></span>
                             </div>
+                        </div>
+
+
+
+
+                        <!-- üye girişi bitiş -->
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+        
             <!-- header close -->
         <!-- content begin -->
         <div class="no-bottom no-top zebra" id="content">
@@ -181,7 +199,7 @@
                             <div class="de-box mb25">
                                 <form name="contactForm" id='contact_form' method="POST" action="{{ route('rentals.store') }}">
                                 @csrf
-                                <input type="hidden" name="car_id" value="{{ $posts->id }}">
+                                <input type="hidden" name="car_id" value="{{ $posts->carname }}">
                                     <h4>Kiralama Ayrıntıları</h4>
 
                                     <div class="spacer-20"></div>
@@ -217,11 +235,18 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-12 mb20">
-                                        <h5>Kullanıcı Adı</h5>
-                                        
-                                        <input name="username" id="username" class="form-control" placeholder="Kullanıcı adınız"></input>
-                                        </div>
+                                            @if(session('user_id'))
+                                                @php
+                                                    $user = \App\Models\Mainusers::find(session('user_id'));
+                                                @endphp
+                                                    <input type="hidden" name="username" id="username" value="{{ $user->name }}">
+                                                    <input type="hidden" name="user_id" id="user_id" value="{{ $user->id }}">
+                                                    <input type="hidden" name="durum" id="durum" value="Onaylandı">
+                                            @else
+                                                <script>
+                                                    window.location.href = "{{ route('login') }}";
+                                                </script>
+                                            @endif
 
                                         <div class="col-lg-12 mb20">
                                             <h5>Alınacak Tarih Saat</h5>

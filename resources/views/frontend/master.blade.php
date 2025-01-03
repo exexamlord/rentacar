@@ -64,21 +64,32 @@
 
                         <div class="de-flex-col">
                             <div class="menu_side_area">
-                                @if(auth()->check()) 
+                                @if(session('user_id'))
+                                    @php
+                                        $user = \App\Models\Mainusers::find(session('user_id'));
+                                    @endphp
                                     <div class="de-login-menu">
-                                        <span id="de-click-menu-profile" class="de-menu-profile">                           
-                                            <img src="{{ asset('images/profile/1.jpg') }}" class="img-fluid" alt="Profil Resmi">
+                                        <span id="de-click-menu-profile" class="de-menu-profile">
+                                            <!-- Statik Profil Fotoğrafı -->
+                                            <img src="{{ asset('images/profile/2.png') }}" class="img-fluid" alt="Profil Resmi">
                                         </span>
                                         <div id="de-submenu-profile" class="de-submenu">
                                             <div class="d-name">
-                                                <h4>{{ auth()->user()->name }}</h4>
-                                                <span class="text-gray">{{ auth()->user()->email }}</span>
+                                                <h4>{{ $user->name ?? 'Kullanıcı Adı' }}</h4>
+                                                <span class="text-gray">{{ $user->mail ?? 'Kullanıcı E-posta' }}</span>
                                             </div>
                                             <div class="d-line"></div>
                                             <ul class="menu-col">
-                                                <li><a href="dashboard.html"><i class="fa fa-home"></i>Dashboard</a></li>
-                                                <li><a href="profile.html"><i class="fa fa-user"></i>My Profile</a></li>
-                                                <li><a href="logout.html"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+                                                <li><a href="{{ url('dashboard') }}"><i class="fa fa-home"></i>Kullanıcı Paneli</a></li>
+                                                <li><a href="{{ route('profile') }}"><i class="fa fa-user"></i>Profilim</a></li>
+                                                <li>
+                                                    <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        <i class="fa fa-sign-out"></i>Çıkış Yap
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -88,6 +99,8 @@
                                 <span id="menu-btn"></span>
                             </div>
                         </div>
+
+
 
 
                         <!-- üye girişi bitiş -->
@@ -122,7 +135,7 @@
                                             <h1 class="s3 mb-3 wow fadeInUp">Gölhisar Rent a Car</h1>
                                             <p class="lead wow fadeInUp" data-wow-delay=".3s">Gölhisarda bulunan rent a car</p>
                                             <div class="spacer-10"></div>
-                                            <a class="btn-line mb10 wow fadeInUp" data-wow-delay=".6s" href="02_dark-cars-list.html">Keşfet</a>
+                                            <a class="btn-line mb10 wow fadeInUp" data-wow-delay=".6s" href="{{ url('/car-list') }}">Keşfet</a>
                                         </div>
                                     </div>
                                 </div>
@@ -143,7 +156,7 @@
                                             <h1 class="s3 mb-3 wow fadeInUp">Ucuz galiba</h1>
                                             <p class="lead wow fadeInUp" data-wow-delay=".3s">Fiyatlar listesi için hemen tıklayın</p>
                                             <div class="spacer-10"></div>
-                                            <a class="btn-line mb10 wow fadeInUp" data-wow-delay=".6s" href="#">Araba Listesi</a>
+                                            <a class="btn-line mb10 wow fadeInUp" data-wow-delay=".6s" href="{{ url('/car-list') }}">Araba Listesi</a>
                                         </div>
                                     </div>
                                 </div>
