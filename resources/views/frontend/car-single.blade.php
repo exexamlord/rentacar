@@ -249,7 +249,7 @@
                                         <div class="col-lg-12 mb20">
                                             <h5>Alınacak Tarih Saat</h5>
                                             <div class="date-time-field">
-                                                <input type="date" id="pickup_date" name="pickup_date" value="pickup_date">
+                                                <input type="text" id="pickup_date" name="pickup_date" value="pickup_date">
                                                 <select name="pickup_time" id="pickup-time" value="pickup_time">
                                                     <option selected disabled value="Select time">Saat</option>
                                                     <option value="00:00">00:00</option>
@@ -307,7 +307,7 @@
                                         <div class="col-lg-12 mb20">
                                             <h5>Teslim Edilecek Tarih Saat</h5>
                                             <div class="date-time-field">
-                                                <input type="date" id="dropoff_date" name="dropoff_date" value="dropoff_date">
+                                                <input type="text" id="dropoff_date" name="dropoff_date" value="dropoff_date">
                                                 <select name="dropoff_time" id="dropoff_time" value="dropoff_time">
                                                     <option selected disabled value="Select time">Saat</option>
                                                     <option value="00:00">00:00</option>
