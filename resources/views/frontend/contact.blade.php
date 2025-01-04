@@ -53,18 +53,55 @@
                                     <li><a class="menu-item" href="{{ url('/car-list') }}">Arabalar</a>  
                                     </li>
                                     
-                                    <li><a class="menu-item" href="contact.html">İletişim</a>
+                                    <li><a class="menu-item" href="{{ route('contact') }}">İletişim</a>
                                         
                                     </li>
                                 </ul>
                             </div>
-                            <div class="de-flex-col">
-                                <div class="menu_side_area">
-                                    
-                                    <a href="{{ url('/login') }}" class="btn-main">Üye Girişi</a>
-                                    <span id="menu-btn"></span>
-                                </div>
+                        <!-- üye girişi başlangıc -->
+
+                        <div class="de-flex-col">
+                            <div class="menu_side_area">
+                                @if(session('user_id'))
+                                    @php
+                                        $user = \App\Models\Mainusers::find(session('user_id'));
+                                    @endphp
+                                    <div class="de-login-menu">
+                                        <span id="de-click-menu-profile" class="de-menu-profile">
+                                            <!-- Statik Profil Fotoğrafı -->
+                                            <img src="{{ asset('images/profile/2.png') }}" class="img-fluid" alt="Profil Resmi">
+                                        </span>
+                                        <div id="de-submenu-profile" class="de-submenu">
+                                            <div class="d-name">
+                                                <h4>{{ $user->name ?? 'Kullanıcı Adı' }}</h4>
+                                                <span class="text-gray">{{ $user->mail ?? 'Kullanıcı E-posta' }}</span>
+                                            </div>
+                                            <div class="d-line"></div>
+                                            <ul class="menu-col">
+                                                <li><a href="{{ url('dashboard') }}"><i class="fa fa-home"></i>Kullanıcı Paneli</a></li>
+                                                <li><a href="{{ route('profile') }}"><i class="fa fa-user"></i>Profilim</a></li>
+                                                <li>
+                                                    <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        <i class="fa fa-sign-out"></i>Çıkış Yap
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                @else
+                                    <a href="{{ route('login') }}" class="btn-main">Üye Girişi</a>
+                                @endif
+                                <span id="menu-btn"></span>
                             </div>
+                        </div>
+
+
+
+
+                        <!-- üye girişi bitiş -->
                         </div>
                     </div>
                 </div>
@@ -82,7 +119,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-									<h1>Üye Ol</h1>
+									<h1>Contact Us</h1>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -94,89 +131,78 @@
 
             <section aria-label="section">
                 <div class="container">
-					<div class="row">
-						<div class="col-md-8 offset-md-2">
-							<h3>Bir hesabın yok mu hemen üye ol.</h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+						<div class="row g-custom-x">
 							
-							<div class="spacer-10"></div>
+							<div class="col-lg-8 mb-sm-30">
+
+							 <h3>Do you have any question?</h3>
 							
-                    <form name="contactForm" id='contact_form' class="form-border" method="post" action="{{ route('register') }}">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="field-set">
-                                                <label>İsim:</label>
-                                                <input type='text' name='name' id='name' class="form-control" required>
+        						<form name="contactForm" id="contact_form" class="form-border" method="post" action="#">
+                                        <div class="row">
+                                            <div class="col-md-4 mb10">
+                                                <div class="field-set">
+                                                    <input type="text" name="Name" id="name" class="form-control" placeholder="Your Name" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb10">
+                                                <div class="field-set">
+                                                    <input type="text" name="Email" id="email" class="form-control" placeholder="Your Email" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb10">
+                                                <div class="field-set">
+                                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone" required>
+                                                </div>
                                             </div>
                                         </div>
+                                            
+                                        <div class="field-set mb20">
+                                            <textarea name="message" id="message" class="form-control" placeholder="Your Message" required></textarea>
+                                        </div>
+                                        <!-- <div class="g-recaptcha" data-sitekey="copy-your-site-key-here"></div> -->
+                                        <div id='submit' class="mt20">
+                                            <input type='submit' id='send_message' value='Send Message' class="btn-main">
+                                        </div>
 
-                    <div class="col-md-6">
-                        <div class="field-set">
-                            <label>Email:</label>
-                            <input type='email' name='mail' id='mail' class="form-control" required> 
-                        </div>
-                    </div>
+                                        <div id="success_message" class='success'>
+                                            Your message has been sent successfully. Refresh this page if you want to send more messages.
+                                        </div>
+                                        <div id="error_message" class='error'>
+                                            Sorry there was an error sending your form.
+                                        </div>
+                                    </form>
+						</div>
+						
+						<div class="col-lg-4">
 
-                    <div class="col-md-6">
-                        <div class="field-set">
-                            <label>Kullanıcı Adı:</label>
-                            <input type='text' name='username' id='username' class="form-control" required>
-                        </div>
-                    </div>
+							<div class="de-box mb30">
+								<h4>US Office</h4>
+								<address class="s1">
+									<span><i class="id-color fa fa-map-marker fa-lg"></i>08 W 36th St, New York, NY 10001</span>
+									<span><i class="id-color fa fa-phone fa-lg"></i>+1 333 9296</span>
+									<span><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">contact@example.com</a></span>
+									<span><i class="id-color fa fa-file-pdf-o fa-lg"></i><a href="#">Download Brochure</a></span>
+								</address>
+							</div>
 
-                    <div class="col-md-6">
-                        <div class="field-set">
-                            <label>Telefon:</label>
-                            <input type='text' name='phone' id='phone' class="form-control" required>
-                        </div>
-                    </div>
 
-                    <div class="col-md-6">
-                        <div class="field-set">
-                            <label>Şifre:</label>
-                            <input type='password' name='password' id='password' class="form-control" required>
-                        </div>
-                    </div>
+							<div class="de-box mb30">
+								<h4>AU Office</h4>
+								<address class="s1">
+									<span><i class="fa fa-map-marker fa-lg"></i>100 Mainstreet Center, Sydney</span>
+									<span><i class="fa fa-phone fa-lg"></i>+61 333 9296</span>
+									<span><i class="fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">contact@example.com</a></span>
+									<span><i class="fa fa-file-pdf-o fa-lg"></i><a href="#">Download Brochure</a></span>
+								</address>
+							</div>
 
-                    <div class="col-md-6">
-                        <div class="field-set">
-                            <label>Şifre Tekrar:</label>
-                            <input type='password' name='re-password' id='re-password' class="form-control" required>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div id='submit' class="pull-left">
-                            <input type='submit' id='send_message' value='Kayıt Ol' class="btn-main color-2">
-                        </div>
-
-                        @if (session('success'))
-                            <div style="color: green;">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
-                        @if ($errors->any())
-                            <div style="color: red;">
-                                @foreach ($errors->all() as $error)
-                                    <p>{{ $error }}</p>
-                                @endforeach
-                            </div>
-                        @endif
-
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </form>
-
+						</div>
 							
 						</div>
-                    </div>
-				</div>
+					</div>
+
             </section>
-			
-			
+
         </div>
         <!-- content close -->
 
@@ -265,7 +291,8 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/designesia.js"></script>
-
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    <script src="form.js"></script>
 </body>
 
 </html>

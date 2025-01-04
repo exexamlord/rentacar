@@ -52,10 +52,8 @@
                                     
                                     <li><a class="menu-item" href="{{ url('/car-list') }}">Arabalar</a>  
                                     </li>
-                                    <li><a class="menu-item" href="quick-booking.html">Hızlı Rezervasyon</a>
-                                        
-                                    </li>
-                                    <li><a class="menu-item" href="contact.html">İletişim</a>
+                                    
+                                    <li><a class="menu-item" href="{{ route('contact') }}">İletişim</a>
                                         
                                     </li>
                                 </ul>

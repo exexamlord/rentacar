@@ -32,6 +32,7 @@ Route::get('/profile', [MainusersControllers::class, 'profile'])->name('profile'
 
 
 
+
 Route::get('/', function () {
     $posts = DB::table('carmain2')->get();
     return view('frontend.master', [
@@ -126,8 +127,10 @@ Route::get('/cars/{id}', function ($id) {
 
 
 
-    Route::post('/dashboard', [RentalsControllers::class, 'store'])->name('rentals.store');
+Route::post('/dashboard', [RentalsControllers::class, 'store'])->name('rentals.store');
 
-
+Route::get('/contact', function () {
+    return view('frontend.contact');
+})->name('contact');
 
 

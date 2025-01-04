@@ -58,9 +58,7 @@
                                     
                                     <li><a class="menu-item" href="{{ url('/car-list') }}">Arabalar</a>  
                                     </li>
-                                    <li><a class="menu-item" href="quick-booking.html">Hızlı Rezervasyon</a>
-                                        
-                                    </li>
+                                    
                                     <li><a class="menu-item" href="contact.html">İletişim</a>
                                         
                                     </li>
@@ -155,7 +153,7 @@
                                 <div class="spacer-20"></div>
                                 <ul class="menu-col">
                                     <li><a href="" class="active"><i class="fa fa-home"></i>Kullanıcı Paneli</a></li>
-                                    <li><a href="account-profile.html"><i class="fa fa-user"></i>Profilim</a></li>
+                                    <li><a href="{{ route('profile') }}"><i class="fa fa-user"></i>Profilim</a></li>
                                     <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="fa fa-sign-out"></i>Sign Out
                                     </a>
