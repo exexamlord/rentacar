@@ -307,7 +307,7 @@
                                         <div class="col-lg-12 mb20">
                                             <h5>Teslim Edilecek Tarih Saat</h5>
                                             <div class="date-time-field">
-                                                <input type="text" id="dropoff_date" name="dropoff_date" value="dropoff_date">
+                                                <input type="text" id="date-picker" name="Pick Up Date" value="">
                                                 <select name="dropoff_time" id="dropoff_time" value="dropoff_time">
                                                     <option selected disabled value="Select time">Saat</option>
                                                     <option value="00:00">00:00</option>
@@ -476,6 +476,7 @@
     ================================================== -->
     <script src="{{ asset('/js/plugins.js') }}"></script>
     <script src="{{ asset('/js/designesia.js') }}"></script>
+    
 
 </body>
 

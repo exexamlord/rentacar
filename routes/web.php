@@ -134,3 +134,9 @@ Route::get('/contact', function () {
 })->name('contact');
 
 
+Route::get('/booking', function () {
+    $posts = DB::table('carmain2')->get();
+    return view('frontend.booking', [
+        'posts' => $posts
+    ]);
+});
