@@ -204,10 +204,7 @@
                                                   <option value='Pennsylvania'>Pennsylvania</option>
                                                   <option value='New Jersey'>New Jersey</option>
                                                   <option value='Connecticut'>Connecticut</option>
-                                                  <option value='Massachusetts'>Massachusetts</option>
-                                                  <option value='Vermont'>Vermont</option>
-                                                  <option value='Rhode Island'>Rhode Island</option>
-                                                  <option value='New Hampshire'>New Hampshire</option>
+                                                  
                                                 </select>
                                             </div>
 
@@ -218,11 +215,7 @@
                                                   <option value='New York'>New York</option>
                                                   <option value='PennsylDvania'>Pennsylvania</option>
                                                   <option value='New Jersey'>New Jersey</option>
-                                                  <option value='Connecticut'>Connecticut</option>
-                                                  <option value='Massachusetts'>Massachusetts</option>
-                                                  <option value='Vermont'>Vermont</option>
-                                                  <option value='Rhode Island'>Rhode Island</option>
-                                                  <option value='New Hampshire'>New Hampshire</option>
+                                                  
                                                 </select>
                                             </div>
 
