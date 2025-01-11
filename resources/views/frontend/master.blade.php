@@ -435,7 +435,7 @@
                         <div class="col-md-3 col-sm-6 mb-sm-30">
                             <div class="de_count transparent text-light wow fadeInUp">
                                 <h3 class="timer" data-to="235" data-speed="3000">0</h3>
-                                Mutsuz(ÖLÜ) Müşteriler
+                                kiralanan arabalarrr
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 mb-sm-30">
