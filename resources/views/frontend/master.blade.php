@@ -111,76 +111,19 @@
         <!-- content begin -->
         <div class="no-bottom no-top" id="content">
             <div id="top"></div>
-            <section id="de-carousel" class="no-top no-bottom carousel slide carousel-fade" data-mdb-ride="carousel">
-              <!-- Indicators -->
-              <ol class="carousel-indicators z1000">
-                <li data-mdb-target="#de-carousel" data-mdb-slide-to="0" class="active"></li>
-                <li data-mdb-target="#de-carousel" data-mdb-slide-to="1"></li>
-                <li data-mdb-target="#de-carousel" data-mdb-slide-to="2"></li>
-              </ol>
-
-              <!-- Inner -->
-              <div class="carousel-inner position-relative">
-                <!-- Single item -->
-                <div class="carousel-item active jarallax">
-                    <img src="images/slider/1.jpg" class="jarallax-img" alt="">
-                    <div class="mask">
-                        <div class="no-top no-bottom">
-                            <div class="h-100 v-center">
-                                <div class="container">
-                                    <div class="row gx-5 align-items-center">
-                                        <div class="col-lg-6 offset-lg-3 text-center mb-sm-30">
-                                            <h1 class="s3 mb-3 wow fadeInUp">Gölhisar Rent a Car</h1>
-                                            <p class="lead wow fadeInUp" data-wow-delay=".3s">Gölhisarda bulunan rent a car</p>
-                                            <div class="spacer-10"></div>
-                                            <a class="btn-line mb10 wow fadeInUp" data-wow-delay=".6s" href="{{ url('/car-list') }}">Keşfet</a>
-                                        </div>
-                                    </div>
+            <section id="subheader" class="jarallax text-light">
+                <img src="images/background/16.jpg" class="jarallax-img" alt="">
+                    <div class="center-y relative text-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+									<h1>Araba Kirala</h1>
                                 </div>
+                                <div class="clearfix"></div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Single item -->
-                <div class="carousel-item jarallax">
-                    <img src="images/slider/2.jpg" class="jarallax-img" alt="">
-                    <div class="mask">
-                        <div class="no-top no-bottom">
-                            <div class="h-100 v-center">
-                                <div class="container">
-                                    <div class="row gx-5 align-items-center">
-                                        <div class="col-lg-6 offset-lg-3 text-center mb-sm-30">
-                                            <h1 class="s3 mb-3 wow fadeInUp">Ucuz galiba</h1>
-                                            <p class="lead wow fadeInUp" data-wow-delay=".3s">Fiyatlar listesi için hemen tıklayın</p>
-                                            <div class="spacer-10"></div>
-                                            <a class="btn-line mb10 wow fadeInUp" data-wow-delay=".6s" href="{{ url('/car-list') }}">Araba Listesi</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single item -->
-                
-                
-                </div>
-              <!-- Inner -->
-
-              <!-- Controls -->
-              <a class="carousel-control-prev" href="#de-carousel" role="button" data-mdb-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Öncesi</span>
-              </a>
-              <a class="carousel-control-next" href="#de-carousel" role="button" data-mdb-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Sonrası</span>
-              </a>
-              <div class="de-gradient-edge-bottom"></div>
             </section>
-
             <section id="section-hero" aria-label="section" class="no-top" data-bgcolor="#121212">
                 <div class="container">
             <div class="row align-items-center">
@@ -352,6 +295,36 @@
                     </div>
                     </div>
                     </section>
+
+                    <section id="section-hero" aria-label="section" class="no-top" data-bgcolor="#121212">
+                <div class="container">
+                    <div class="row text-light">
+                                <div class="col-lg-12">
+                                    <div class="container-timeline">
+                                        <ul>
+                                            <li>
+                                                <h4>Choose a vehicle</h4>
+                                                <p>Unlock unparalleled adventures and memorable journeys with our vast fleet of vehicles tailored to suit every need, taste, and destination.</p>
+                                            </li>
+                                            <li>
+                                                <h4>Pick location &amp; date</h4>
+                                                <p>Pick your ideal location and date, and let us take you on a journey filled with convenience, flexibility, and unforgettable experiences.</p>
+                                            </li>
+                                            <li>
+                                                <h4>Make a booking</h4>
+                                                <p>Secure your reservation with ease, unlocking a world of possibilities and embarking on your next adventure with confidence.</p>
+                                            </li>
+                                            <li>
+                                                <h4>Sit back &amp; relax</h4>
+                                                <p>Hassle-free convenience as we take care of every detail, allowing you to unwind and embrace a journey filled comfort.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </section>
+            
 
             <section id="section-cars">
                 <div class="container">
