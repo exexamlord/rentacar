@@ -143,10 +143,7 @@
                                                 <h5>Pick Up Location</h5>
                                                 <select name='Pick Up Location' id="pick_up_location" class="form-control opt-1-disable" required>
                                                   <option value='New York'>Enter your pickup location</option>
-                                                  <option value='New York'>New York</option>
-                                                  <option value='Pennsylvania'>Pennsylvania</option>
-                                                  <option value='New Jersey'>New Jersey</option>
-                                                  <option value='Connecticut'>Connecticut</option>
+                                                  
                                                   
                                                 </select>
                                             </div>
@@ -155,9 +152,7 @@
                                                 <h5>Destination</h5>
                                                 <select name='Destination' id="destination" class="form-control opt-1-disable" required>
                                                   <option value='New York'>Enter your destination</option>
-                                                  <option value='New York'>New York</option>
-                                                  <option value='PennsylDvania'>Pennsylvania</option>
-                                                  <option value='New Jersey'>New Jersey</option>
+                                                  
                                                   
                                                 </select>
                                             </div>
@@ -205,13 +200,6 @@
                                                         <option value="17:30">17:30</option>
                                                         <option value="18:00">18:00</option>
                                                         <option value="18:30">18:30</option>
-                                                        <option value="19:00">19:00</option>
-                                                        <option value="19:30">19:30</option>
-                                                        <option value="20:00">20:00</option>
-                                                        <option value="20:30">20:30</option>
-                                                        <option value="21:00">21:00</option>
-                                                        <option value="21:30">21:30</option>
-                                                        <option value="22:00">22:00</option>
                                                         <option value="22:30">22:30</option>
                                                         <option value="23:00">23:00</option>
                                                         <option value="23:30">23:30</option>
