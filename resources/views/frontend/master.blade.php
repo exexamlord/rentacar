@@ -224,8 +224,7 @@
                                                         <option value="11:00">11:00</option>
                                                         <option value="11:30">11:30</option>
                                                         <option value="12:00">12:00</option>
-                                                        <option value="12:30">12:30</option>
-                                                        <option value="13:00">13:00</option>
+                                                        
                                                         
                                                         
                                                     </select>
